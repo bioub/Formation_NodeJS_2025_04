@@ -1,6 +1,7 @@
 // Importer Random.getRandomInt en CommonJS
 // Et exporter Jeu
 const readline = require('node:readline');
+const Random = require('./random.js');
 
 class Jeu {
   constructor(options = {}) {
@@ -43,3 +44,5 @@ class Jeu {
     });
   }
 }
+
+module.exports = Jeu;

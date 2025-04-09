@@ -1,8 +1,9 @@
 // Importer Random.getRandomInt ou directement getRandomInt en ESM
 // Et exporter Jeu
 import readline from 'node:readline';
+import { getRandomInt } from './random.js';
 
-class Jeu {
+export default class Jeu {
   constructor(options = {}) {
     // Nullish coalescing operator
     const min = options.min ?? 0;
@@ -11,7 +12,7 @@ class Jeu {
       input: process.stdin,
       output: process.stdout,
     });
-    this.entierAlea = Random.getRandomInt(min, max);
+    this.entierAlea = getRandomInt(min, max);
     this.essais = [];
   }
   jouer() {
