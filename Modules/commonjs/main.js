@@ -1,5 +1,5 @@
-const hello = require('./hello.js');
-const MyMath = require('./my-math.js');
+const hello = require('./hello');
+const MyMath = require('./my-math');
 
 console.log(hello('World'));
 console.log(MyMath.sum(1, 2));
