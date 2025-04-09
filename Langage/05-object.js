@@ -55,6 +55,8 @@ const MyMath = {
   sum: (a, b) => a + b,
 };
 
+console.log(MyMath.sum(1, 2)); // 3
+
 // Object literal
 // A utiliser :
 // - pour créer des namespaces objects (ex: MyMath, devenu une mauvaise pratique depuis peu)
@@ -63,6 +65,18 @@ const MyMath = {
 // - pour créer des objets de type "enregistrement" (ex: { 'name': 'John', 'age': 30, 'city': 'New York' })
 // Plus généralement des objets qui ne vont êtres créé qu'une fois
 // ou s'ils sont créés plusieurs fois, qui ne contiennent pas de méthodes (fonctions)
+
+const coordsA = {
+  x: 1,
+  y: 2,
+  // compute() {}
+};
+
+const coordsB = {
+  x: 3,
+  y: 4,
+  // compute() {}
+};
 
 // Pour les cas où on a besoin de créer plusieurs objets similaires avec des méthodes, on utilise les constructeurs.
 // Un constructeur est une fonction qui crée un objet.
@@ -107,15 +121,15 @@ console.log(typeof User.prototype); // object
 console.log(typeof User.prototype.greet); // function
 
 
-const user = new User('John');
-delete user.name; // Supprime la méthode greet de l'objet user
-console.log(user.greet()); // Hello, undefined!
+const user1 = new User('John');
+delete user1.name; // Supprime la méthode greet de l'objet user
+console.log(user1.greet()); // Hello, undefined!
 
 const user2 = new User('Alice');
 console.log(user2.greet());
 
-console.log(user.greet === user2.greet); // true
+console.log(user1.greet === user2.greet); // true
 
-if (user instanceof User) {
+if (user1 instanceof User) {
   console.log('user est une instance de User');
 }

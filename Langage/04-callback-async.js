@@ -33,3 +33,6 @@ console.log('E');
 //       }
 // }
 // while (queue.length > 0) {
+
+// Youtube JSConf Asia 2018 - The Event Loop - Jake Archibald
+// https://www.youtube.com/watch?v=cCOL7MC4Pl0
