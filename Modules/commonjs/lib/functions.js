@@ -1,3 +1,3 @@
 exports.helloworld = function helloworld() {
-  console.log('Hello world');
-}
+  console.log("Hello world");
+};
