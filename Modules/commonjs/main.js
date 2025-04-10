@@ -13,6 +13,8 @@ const Functions = require('./functions');
 // à la clé main du package.json
 const Lib = require('./lib');
 
+// Le require d'un module ES6 (import) est possible
+// depuis Node.js 23 (ajouté aussi dans la 22)
 const RandomLib = require('./random-lib.mjs');
 
 console.log(RandomLib.getRandomInt(1, 10)); // Affiche un nombre aléatoire entre 1 et 10

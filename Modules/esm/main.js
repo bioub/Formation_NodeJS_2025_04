@@ -1,11 +1,11 @@
 import hello from './hello.js';
-import { multiply, sum } from './my-math.js';
-import { getRandomInt } from './lib.cjs'
+import { multiply, sum as add } from './my-math.js';
+import * as Random from './lib.cjs'
 
 console.log(hello('World'));
-console.log(sum(1, 2));
+console.log(add(1, 2));
 console.log(multiply(2, 3));
-console.log(getRandomInt(0, 10));
+console.log(Random.getRandomInt(0, 10));
 
 // chemin absolu du fichier courant (ici main.js)
 console.log(import.meta.filename);

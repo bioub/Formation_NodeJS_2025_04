@@ -26,7 +26,7 @@ const readline = require('node:readline');
 
 class Jeu {
   constructor(options = {}) {
-    // Nullish coalescing operator
+    // Nullish coalescing operator ES2020
     const min = options.min ?? 0;
     const max = options.max ?? 100;
     this.rl = readline.createInterface({
