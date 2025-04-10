@@ -2,6 +2,9 @@ import express from 'express';
 
 const app = express();
 
+// Middleware
+app.use(express.json()); // pour parser le corps de la requête en JSON
+
 // app.use match toutes les requêtes HTTP
 // app.use((req, res) => {
 //   if (req.url === '/' && req.method === 'GET') {
@@ -23,14 +26,20 @@ const app = express();
 // all toutes les méthodes HTTP
 // d'une URL fixe
 // Ex : URL /api/users n'importe quelle méthode HTTP
-app.all('/api/users', (req, res) => {
-  // res.writeHead(200, { 'Content-Type': 'application/json' });
-  // res.end(JSON.stringify({ data: 'Hello World!' }));
-  res.json({ data: 'Hello World!' });
-});
+// app.all('/api/users', (req, res) => {
+//   // res.writeHead(200, { 'Content-Type': 'application/json' });
+//   // res.end(JSON.stringify({ data: 'Hello World!' }));
+//   res.json({ data: 'Hello World!' });
+// });
 
 // app.METHODE_HTTP
 // Ex: URL / et METHOD GET
+app.get('/api/users', (req, res) => {
+    // res.writeHead(200, { 'Content-Type': 'application/json' });
+    // res.end(JSON.stringify({ data: 'Hello World!' }));
+    res.json({ data: 'Hello World!' });
+  });
+
 app.get('/', (req, res) => {
   // res.writeHead(200, { 'Content-Type': 'text/html' });
   // res.end('<h2>Home page!</h2>\n');
@@ -43,6 +52,13 @@ app.get('/hello/:username', (req, res) => {
   console.log(req.params);
   console.log(req.query); // ?name=Romain&age=30 (ce qui suit le ? dans l'URL)
   res.send(`Hello ${req.params.username}`);
+});
+
+app.post('/api/users', (req, res) => {
+  // req.body contient le corps de la requête
+  console.log(req.body);
+
+  res.json({msg: 'User created!'});
 });
 
 // On a déjà un 404 par défaut
