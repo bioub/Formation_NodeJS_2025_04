@@ -75,9 +75,9 @@
 // exports.findByIdAndDelete = findByIdAndDelete;
 // exports.findByIdAndUpdate = findByIdAndUpdate;
 
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const schema = new mongoose.Schema({
+const schema = new Schema({
   title: {
     type: String,
     required: true,
@@ -92,6 +92,5 @@ const schema = new mongoose.Schema({
   },
 });
 
-const Todo = mongoose.model('Todo', schema);
-
-module.exports = Todo;
+const Todo = model('Todo', schema);
+export default Todo;

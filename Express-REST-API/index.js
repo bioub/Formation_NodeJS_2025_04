@@ -1,12 +1,12 @@
-const http = require('http');
-const mongoose = require('mongoose');
+import { createServer } from 'http';
+import { connect } from 'mongoose';
 
-const config = require('./config');
-const app  = require('./app');
+import config from './config/index.js';
+import app from './app.js';
 
-mongoose.connect('mongodb://127.0.0.1:27017/test');
+connect('mongodb://127.0.0.1:27017/test');
 
-const server = http.createServer(app);
+const server = createServer(app);
 
 server.on('error', (err) => {
   console.log(err.message);

@@ -14,6 +14,9 @@
 		},
 		{
 			"path": "Express-REST-API"
+		},
+		{
+			"path": "Hello-Cypress"
 		}
 	],
 	"settings": {}

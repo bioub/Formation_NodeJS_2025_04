@@ -1,12 +1,12 @@
-const express = require('express');
-const userCtrl = require('../controllers/user');
+import { Router, json } from 'express';
+import { login } from '../controllers/user.js';
 
-const router = express.Router();
+const router = Router();
 
 // prettier-ignore
 router.post('/login',
-  express.json(),
-  userCtrl.login
+  json(),
+  login
 );
 
-module.exports = router;
+export default router;

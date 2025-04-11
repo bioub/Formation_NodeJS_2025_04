@@ -1,38 +1,38 @@
-const express = require('express');
+import { Router, json } from 'express';
 
-const authenticate = require('../middlewares/authenticate');
-const todoCtrl = require('../controllers/todo');
+import authenticate from '../middlewares/authenticate.js';
+import { list, show, add, delete as deleteCtrl, update } from '../controllers/todo.js';
 
-const router = express.Router();
+const router = Router();
 
 // prettier-ignore
 router.get('/',
-  todoCtrl.list,
+  list,
 );
 
 // prettier-ignore
 router.get('/:id',
-  todoCtrl.show,
+  show,
 );
 
 // prettier-ignore
 router.post('/',
   // authenticate,
-  express.json(),
-  todoCtrl.add
+  json(),
+  add
 );
 
 // prettier-ignore
 router.delete('/:id',
   // authenticate,
-  todoCtrl.delete,
+  deleteCtrl,
 );
 
 // prettier-ignore
 router.put('/:id',
   // authenticate,
-  express.json(),
-  todoCtrl.update,
+  json(),
+  update,
 );
 
-module.exports = router;
+export default router;
