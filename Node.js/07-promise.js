@@ -4,7 +4,7 @@
 // Un objet qui représente la valeur d'une opération asynchrone
 // il a 3 états :
 // - pending (en attente)
-// - fulfilled (réussie)
+// - fulfilled/resolved (réussie)
 // - rejected (échouée)
 
 // La plupart du temps, on ne va pas utiliser les promesses directement

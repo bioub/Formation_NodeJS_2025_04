@@ -3,7 +3,7 @@ import express from 'express';
 const app = express();
 
 // Middleware
-app.use(express.json()); // pour parser le corps de la requête en JSON
+// app.use(express.json()); // pour parser le corps de la requête en JSON
 
 // app.use match toutes les requêtes HTTP
 // app.use((req, res) => {
@@ -35,10 +35,10 @@ app.use(express.json()); // pour parser le corps de la requête en JSON
 // app.METHODE_HTTP
 // Ex: URL / et METHOD GET
 app.get('/api/users', (req, res) => {
-    // res.writeHead(200, { 'Content-Type': 'application/json' });
-    // res.end(JSON.stringify({ data: 'Hello World!' }));
-    res.json({ data: 'Hello World!' });
-  });
+  // res.writeHead(200, { 'Content-Type': 'application/json' });
+  // res.end(JSON.stringify({ data: 'Hello World!' }));
+  res.json({ data: 'Hello World!' });
+});
 
 app.get('/', (req, res) => {
   // res.writeHead(200, { 'Content-Type': 'text/html' });
@@ -54,11 +54,11 @@ app.get('/hello/:username', (req, res) => {
   res.send(`Hello ${req.params.username}`);
 });
 
-app.post('/api/users', (req, res) => {
+app.post('/api/users', express.json(), (req, res) => {
   // req.body contient le corps de la requête
   console.log(req.body);
 
-  res.json({msg: 'User created!'});
+  res.json({ msg: 'User created!' });
 });
 
 // On a déjà un 404 par défaut
