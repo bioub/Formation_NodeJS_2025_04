@@ -40,3 +40,20 @@ describe('GET /api/todos', () => {
 // Tester la route GET /api/todos/1
 // Avec une fausse méthode findById
 // qui renvoie un objet Todo
+describe('GET /api/todos/1', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('should return a todo', async () => {
+    const mockTodo =  { _id: '1', title: 'Test Todo 1', completed: false };
+    Todo.findById.mockResolvedValue(mockTodo);
+
+    const response = await request(app).get('/api/todos/1');
+
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual(mockTodo);
+    expect(Todo.findById).toHaveBeenCalledWith('1');
+    expect(Todo.findById).toHaveBeenCalledTimes(1);
+  });
+});

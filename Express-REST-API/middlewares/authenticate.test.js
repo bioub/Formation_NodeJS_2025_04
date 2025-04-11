@@ -1,5 +1,6 @@
 import { expect, test, vitest } from "vitest";
 import authenticate from "./authenticate";
+import { tokens } from "../models/user";
 
 test('authenticate', () => {
   const req = {
@@ -46,3 +47,17 @@ test('authenticate avec spy', () => {
 // une requête avec un header authorization valide
 // (ex: d4973653-9895-4123-a7dd-3e1387d0fbde qui est présent par défaut )
 // et vérifie que la fonction next est appelée.
+test('authenticate avec token valide', () => {
+  tokens.push('abcdefghijklmnop');
+  const req = {
+    headers: {
+      authorization: 'abcdefghijklmnop'
+    }
+  };
+  const res = {};
+  const next = vitest.fn();
+
+  authenticate(req, res, next);
+  expect(next).toHaveBeenCalled();
+  tokens.pop();
+});
